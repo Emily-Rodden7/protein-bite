@@ -1,0 +1,6 @@
+<h1>Protein Recipes</h1>
+<ul>
+  {% for Recipe in Recipes %}
+    <li><strong>{{ Recipe.name }}</strong>: {{ Recipe.protein_grams }}g protein - {{ Recipe.description }}</li>
+  {% endfor %}
+</ul>
