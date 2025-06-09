@@ -1,8 +1,34 @@
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'recipes/styles.css' %}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'recipes' %}">Recipes</a>
+        <a href="{% url 'signup' %}">Sign Up / Log In</a>
+    </div>
 
-<h1>Protein Recipes</h1>
+    <div class="content">
+        <h1>Healthy Eating</h1>
+        <p>Eating a high-protein diet can help with muscle building, satiety, and weight management.</p>
+    </div>
+    <div>
+      <h1>Protein Recipes</h1>
 <ul>
   {% for Recipe in Recipes %}
     <li><strong>{{ Recipe.name }}</strong>: {{ Recipe.protein_grams }}g protein - {{ Recipe.description }}</li>
   {% endfor %}
 </ul>
+
+    </div>
+
+    <!-- Newsletter form here -->
+</body>
+</html>
+
