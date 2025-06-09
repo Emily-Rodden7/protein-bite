@@ -13,3 +13,7 @@ def about(request):
 
 def recipes(request):
     return render(request, 'recipes/recipes.html')
+
+
+def signup(request):
+    return render(request, 'recipes/signup.html')
