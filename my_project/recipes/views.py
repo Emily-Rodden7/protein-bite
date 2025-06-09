@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from .models import ProteinRecipe
+from .models import ProteinRecipes
 
 
 def home(request):
-    snacks = ProteinRecipe.objects.all()
-    return render(request, 'snacks/home.html', {'snacks': snacks})
+    Recipes = ProteinRecipes.objects.all()
+    return render(request, 'Recipes/home.html', {'Recipes': Recipes})
 
 
 def about(request):

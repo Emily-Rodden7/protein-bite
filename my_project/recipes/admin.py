@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import ProteinRecipe
+from .models import ProteinRecipes
 
-admin.site.register(ProteinRecipe)
+admin.site.register(ProteinRecipes)
