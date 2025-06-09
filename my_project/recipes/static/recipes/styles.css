@@ -1,4 +1,3 @@
-/* recipes/static/recipes/styles.css */
 body {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
@@ -18,3 +17,28 @@ body {
   text-decoration: none;
   font-weight: bold;
 }
+
+.hero { /* home page hero image */
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: url("/static/recipes/images/hero-chickenmealprep.jpg") no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text { /* text for over the hero image */
+    position: absolute;
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* better text visibility */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
