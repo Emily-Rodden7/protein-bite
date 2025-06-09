@@ -3,9 +3,9 @@ from .models import ProteinRecipes
 
 
 def home(request):
-    Recipes = ProteinRecipes.objects.all()
-    return render(request, 'Recipes/home.html', {'Recipes': Recipes})
+    recipes = ProteinRecipes.objects.all()
+    return render(request, 'recipes/home.html', {'recipes': recipes})
 
 
 def about(request):
-    return render(request, 'Recipes/about.html')
+    return render(request, 'recipes/about.html')
