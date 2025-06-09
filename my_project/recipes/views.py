@@ -9,3 +9,7 @@ def home(request):
 
 def about(request):
     return render(request, 'recipes/about.html')
+
+
+def recipes(request):
+    return render(request, 'recipes/recipes.html')
