@@ -57,29 +57,6 @@
         <div class="forms-container">
             <button class="toggle-form-button">Create Account</button>
             <div class="signin-login">
-                <form action="{% url 'register' %}" method="post" class="sign-up-form">
-                    {% csrf_token %}
-                    <h2 class="title">Sign up</h2>
-                    <div class="input-field">
-                        <i class="fas fa-user"></i>
-                        <input type="text" name="username" placeholder="Username" required>
-                    </div>
-                    <div class="input-field">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" name="email" placeholder="Email" required>
-                    </div>
-                    <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" class="password" name="password1" placeholder="Password" required>
-                        <button class="toggle-password" type="button">Show Password</button>
-                    </div>
-                    <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" class="password" name="password2" placeholder="Confirm Password" required>
-                        <button class="toggle-password" type="button">Show Password</button>
-                    </div>
-                    <input type="submit" value="Register" class="btn">
-                </form>
                 <form action="{% url 'login' %}" method="post" class="login-form">
                     {% csrf_token %}
                     <h2 class="title">Login</h2>
