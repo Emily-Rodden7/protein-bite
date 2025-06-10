@@ -1,0 +1,155 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background: linear-gradient(to right, #059669, #0d9488);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero { /* home page hero image */
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: url("/static/recipes/images/hero-chickenmealprep.jpg") no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text { /* text for over the hero image */
+    position: absolute;
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* behind text shadow */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* titles */
+h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+/* circle icon section - home page */
+.feature-section {
+  background-image: linear-gradient(to right, #10b981, #0d9488);
+  padding: 4rem 0;
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.circle-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 7rem; /* gap between each circle */
+}
+
+.circle-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circle-icon {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 9999px;
+  background-color: #ffffff;
+  color: #0d9488;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.circle-icon:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.circle-item h3 { /* heading above circle icons */
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.circle-item p { /* paragraph under circle icons */
+  text-align: center;
+}
+
+@media (max-width: 768px) { /* circle icons change position on screen size */
+  .circle-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+/* footer */
+.footer {
+  background: linear-gradient(to right, #10b981, #14b8a6);
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.footer-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-links li a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  color: white;
+  margin: 0 10px;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #f0f0f0;
+}
