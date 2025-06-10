@@ -15,8 +15,8 @@ def recipes(request):
     return render(request, 'recipes/recipes.html')
 
 
-def signup(request):
-    return render(request, 'recipes/signup.html')
+def login(request):
+    return render(request, 'recipes/login.html')
 
 
 def my_account(request):
