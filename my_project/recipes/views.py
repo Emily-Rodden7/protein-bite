@@ -4,7 +4,6 @@ from .models import Account
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -40,9 +39,13 @@ def register(request):
             messages.error(request, "Email already used")
             return redirect('register')
 
-        user = User.objects.create_user(username=username, email=email, password=password1)
+        user = User.objects.create_user(
+            username=username,
+            email=email,
+            password=password1)
         user.save()
-        messages.success(request, "Account created successfully! Please log in.")
+        messages.success(request,
+                         "Account created successfully! Please log in.")
         return redirect('login')
     else:
         return render(request, 'recipes/register.html')
@@ -70,7 +73,7 @@ def edit_account(request):
     account_obj, created = Account.objects.get_or_create(user=user)
 
     if request.method == 'POST':
-        account_obj.address     = request.POST.get('address', '')
+        account_obj.address = request.POST.get('address', '')
         account_obj.phonenumber = request.POST.get('phonenumber', '')
         account_obj.save()
         return redirect('account')

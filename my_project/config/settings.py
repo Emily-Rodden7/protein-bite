@@ -23,7 +23,9 @@ LOGOUT_REDIRECT_URL = 'home'
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ct=)$p5-wlzou_f8pk!)f1)3qc86!3w*l!9(6cu@*l--xn1l=r'
+SECRET_KEY = (
+    'django-insecure-ct=)$p5-wlzou_f8pk!)f1)3qc86!3w*l!9(6cu@*l--xn1l=r'
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -90,13 +92,19 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+            )
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.MinimumLengthValidator',
+        )
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.CommonPasswordValidator',
+            )
     },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
