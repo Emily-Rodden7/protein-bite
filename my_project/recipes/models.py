@@ -9,6 +9,10 @@ class ProteinRecipes(models.Model):
     protein_grams = models.IntegerField()
     description = models.TextField()
 
+    class Meta:
+        verbose_name = "Protein Recipe"
+        verbose_name_plural = "Protein Recipes"
+
     def __str__(self):
         return self.name
 
