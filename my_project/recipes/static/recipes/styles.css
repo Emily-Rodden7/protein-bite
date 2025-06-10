@@ -124,7 +124,7 @@ h1 {
 /* about us page */
 
 /* Hero Image Section */
-.about-hero {
+.colour-hero {
     position: relative;
     width: 100%;
     height: 300px;
@@ -136,7 +136,7 @@ h1 {
 }
 
 /* Title for the hero section */
-.abouthero-text h1 {
+.colourhero-text h1 {
     font-size: 3rem;
     -webkit-background-clip: text;
     color: white;
