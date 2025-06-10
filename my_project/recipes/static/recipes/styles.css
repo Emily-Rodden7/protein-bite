@@ -37,8 +37,17 @@ body {
     border-radius: 10px;
 }
 
+/* titles */
 h1 {
     font-size: 3rem;
     margin: 0;
 }
 
+/* text on the home page */
+.home-content {
+    width: 60%; /* Set the width of the content */
+    margin: 0 auto; 
+    padding: 20%; 
+    text-align: center; 
+    box-sizing: border-box; /* Ensures padding is included within the width */
+}
