@@ -32,7 +32,7 @@ body {
     position: absolute;
     color: white;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.5); /* better text visibility */
+    background-color: rgba(0, 0, 0, 0.5); /* behind text shadow */
     padding: 20px;
     border-radius: 10px;
 }
@@ -41,13 +41,4 @@ body {
 h1 {
     font-size: 3rem;
     margin: 0;
-}
-
-/* text on the home page */
-.home-content {
-    width: 60%; /* Set the width of the content */
-    margin: 0 auto; 
-    padding: 20%; 
-    text-align: center; 
-    box-sizing: border-box; /* Ensures padding is included within the width */
 }
