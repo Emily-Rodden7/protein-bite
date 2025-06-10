@@ -30,10 +30,27 @@ body {
     margin-right: 50px;
 }
 
+/* Nav link hover effect */
+.navbar-links a:hover {
+    color: #ab1010;  
+}
+
+/* Style for active link */
+.navbar-links a.active {
+    color: #ab1010;  /* Red color for active link */
+}
+
 /* Links styling */
 .navbar a {
     color: white;
     text-decoration: none;
+    font-weight: bold;
+}
+
+/* Styling for the Welcome message on nav bar */
+.welcome-message {
+    color: #ab1010;
+    margin-right: 10px; 
     font-weight: bold;
 }
 

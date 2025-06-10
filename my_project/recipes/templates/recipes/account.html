@@ -12,27 +12,26 @@
     <!-- Navigation bar -->
 <div class="navbar">
     <!-- Logo on the left -->
-     
     <a href="/" class="navbar-logo">
-    <img src="{% static 'recipes/images/proteinbite-logo.png' %}" alt="Protein Bite Logo" class="logo">
+        <img src="{% static 'recipes/images/proteinbite-logo.png' %}" alt="Protein Bite Logo" class="logo">
     </a>
 
-     <!-- Navigation links on the right -->
-  <div class="navbar-links">
-    {% if user.is_authenticated %}
-      <span class="welcome-message">Welcome, {{ user.username }}!</span>
-        <a href="{% url 'home' %}">Home</a>
-        <a href="{% url 'about' %}">About</a>
-        <a href="{% url 'recipes' %}">Recipes</a>
-        <a href="{% url 'account' %}">Account</a>
-        <a href="{% url 'logout' %}">Log Out</a>
-    {% else %}
-        <a href="{% url 'home' %}">Home</a>
-        <a href="{% url 'about' %}">About</a>
-        <a href="{% url 'recipes' %}">Recipes</a>
-        <a href="{% url 'login' %}">Log In</a>
-    {% endif %}
-  </div>
+    <!-- Navigation links on the right -->
+    <div class="navbar-links">
+        {% if user.is_authenticated %}
+            <span class="welcome-message">Welcome, {{ user.username }}!</span>
+            <a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+            <a href="{% url 'about' %}" class="{% if request.path == '/about/' %}active{% endif %}">About</a>
+            <a href="{% url 'recipes' %}" class="{% if request.path == '/recipes/' %}active{% endif %}">Recipes</a>
+            <a href="{% url 'account' %}" class="{% if request.path == '/account/' %}active{% endif %}">Account</a>
+            <a href="{% url 'logout' %}" class="{% if request.path == '/logout/' %}active{% endif %}">Log Out</a>
+        {% else %}
+            <a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+            <a href="{% url 'about' %}" class="{% if request.path == '/about/' %}active{% endif %}">About</a>
+            <a href="{% url 'recipes' %}" class="{% if request.path == '/recipes/' %}active{% endif %}">Recipes</a>
+            <a href="{% url 'login' %}" class="{% if request.path == '/login/' %}active{% endif %}">Log In</a>
+        {% endif %}
+    </div>
 </div>
 
 <div>
