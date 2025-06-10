@@ -7,6 +7,36 @@
     <link rel="stylesheet" href="{% static 'recipes/styles.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+<style>
+  .forms-container .login-form {
+  display: block;
+}
+
+.forms-container .sign-up-form {
+  display: none;
+}
+
+.forms-container.show-signup .login-form {
+  display: none;
+}
+
+.forms-container.show-signup .sign-up-form {
+  display: block;
+}
+
+  .toggle-form-button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .toggle-form-button:hover {
+    background-color: #3e8e41;
+  }
+</style>
 <body>
     <div class="navbar">
         <a href="{% url 'home' %}">Home</a>
@@ -14,10 +44,11 @@
         <a href="{% url 'recipes' %}">Recipes</a>
         <a href="{% url 'login' %}">Log In</a>
     </div>
-<h1>Sign up / Log in</h1>
+<h1>Sign up / Login</h1>
 <p>This app lists high-protein recipe ideas for fitness and health.</p>
     <div class="container">
         <div class="forms-container">
+            <button class="toggle-form-button">Create Account</button>
             <div class="signin-login">
                 <form action="{% url 'login' %}" method="post" class="sign-up-form">
                     {% csrf_token %}
@@ -37,13 +68,14 @@
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" name="password2" placeholder="Confirm Password" required>
+                        <input type="password" class="password" name="password2" placeholder="Confirm Password" required>
+                        <button class="toggle-password" type="button">Show Password</button>
                     </div>
                     <input type="submit" value="Sign up" class="btn">
                 </form>
-                <form action="{% url 'login' %}" method="post" class="sign-in-form">
+                <form action="{% url 'login' %}" method="post" class="login-form">
                     {% csrf_token %}
-                    <h2 class="title">Sign in</h2>
+                    <h2 class="title">Login</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
                         <input type="text" name="username" placeholder="Username" required>
@@ -72,6 +104,17 @@ toggleButtons.forEach((button, index) => {
     }
   });
 });
+
+// Show/hide signup and login forms
+const toggleFormButton = document.querySelector('.toggle-form-button');
+const formsContainer = document.querySelector('.forms-container');
+
+if (toggleFormButton) {
+  toggleFormButton.addEventListener('click', () => {
+    formsContainer.classList.toggle('show-signup');
+    toggleFormButton.textContent = formsContainer.classList.contains('show-signup') ? 'Login' : 'Create Account';
+  });
+}
     </script>
 
 <!-- Footer -->
