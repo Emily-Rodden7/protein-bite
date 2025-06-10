@@ -182,11 +182,14 @@ h1 {
     border-radius: 10px;
 }
 
-/* Optional: Ensure the hero section text has some spacing for better presentation */
+/* Optional: Ensure the hero section text has some spacing */
 .hero-text {
     padding: 20px;
 }
 
+.about-text h1 {
+    color: #ab1010;  /* Red color */
+}
 
 /* General styling for the about section */
 .about {
