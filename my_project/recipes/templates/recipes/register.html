@@ -9,19 +9,19 @@
 </head>
 <style>
   .forms-container .login-form {
-  display: block;
+  display: none;
 }
 
 .forms-container .sign-up-form {
-  display: none;
+  display: block;
 }
 
 .forms-container.show-signup .login-form {
-  display: none;
+  display: block;
 }
 
 .forms-container.show-signup .sign-up-form {
-  display: block;
+  display: none;
 }
 
   .toggle-form-button {
@@ -44,6 +44,7 @@
         </div>
     {% endfor %}
 {% endif %}
+
 <body>
     <div class="navbar">
         <a href="{% url 'home' %}">Home</a>
@@ -51,12 +52,12 @@
         <a href="{% url 'recipes' %}">Recipes</a>
         <a href="{% url 'login' %}">Log In</a>
     </div>
-<h1>Login</h1>
-<p>Login to your account below.</p>
+<h1>Sign up</h1>
+<p>Create your new account below.</p>
     <div class="container">
         <div class="forms-container">
-            <button class="toggle-form-button">Create Account</button>
-            <div class="signin-login">
+            <!--<button class="toggle-form-button">Create Account</button>-->
+            <div class="register">
                 <form action="{% url 'register' %}" method="post" class="sign-up-form">
                     {% csrf_token %}
                     <h2 class="title">Sign up</h2>
@@ -80,20 +81,6 @@
                     </div>
                     <input type="submit" value="Register" class="btn">
                 </form>
-                <form action="{% url 'login' %}" method="post" class="login-form">
-                    {% csrf_token %}
-                    <h2 class="title">Login</h2>
-                    <div class="input-field">
-                        <i class="fas fa-user"></i>
-                        <input type="text" name="username" placeholder="Username" required>
-                    </div>
-                    <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" class="password" name="password" placeholder="Password" required>
-                        <button class="toggle-password" type="button">Show Password</button>
-                    </div>
-                    <input type="submit" value="Login" class="btn">
-                </form>
             </div>
         </div>
     </div>
@@ -111,24 +98,6 @@ toggleButtons.forEach((button, index) => {
     }
   });
 });
-
-// Show/hide signup and login forms
-const toggleFormButton = document.querySelector('.toggle-form-button');
-const formsContainer = document.querySelector('.forms-container');
-const loginUrl = "{% url 'login' %}";
-const registerUrl = "{% url 'register' %}";
-
-if (toggleFormButton) {
-  toggleFormButton.addEventListener('click', () => {
-    formsContainer.classList.toggle('show-signup');
-    if (formsContainer.classList.contains('show-signup')) {
-      window.location.href = registerUrl;
-    } else {
-      window.location.href = loginUrl;
-    }
-    toggleFormButton.textContent = formsContainer.classList.contains('show-signup') ? 'Login' : 'Create Account';
-  });
-}
     </script>
 
 <!-- Footer -->
