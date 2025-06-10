@@ -121,6 +121,55 @@ h1 {
   }
 }
 
+/* about us page */
+
+/* General styling for the about section */
+
+/* General styling for the about section */
+.about {
+    display: flex;
+    align-items: center;   /* Ensure both text and image are vertically centered */
+    justify-content: space-between; /* Space between text and image */
+    margin: 50px 0;
+    padding: 20px;
+}
+.about-text {
+    width: 50%;                    /* Text takes 50% of the width */
+    padding-right: 20px;           /* Some space on the right */
+    box-sizing: border-box;
+    padding-left: 5%;              /* Small padding to the left */
+}
+
+/* Set the image container to 30% width */
+.about-image {
+    width: 30%; /* Image container takes 30% of the width */
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-left: auto; /* Push image to the right */
+    padding-right: 5%; /* Padding for spacing */
+    align-items: center; /* Align the image vertically */
+}
+
+/* Ensure the image fills the container and retains its aspect ratio */
+.about-image img {
+    width: 100%;  /* Image takes up 100% of the container's width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50px; /* Rounded corners for the image */
+}
+
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column;  /* Stack text and image vertically */
+        align-items: center;     /* Center items */
+    }
+
+    .about-text, .about-image {
+        width: 90%;  /* Allow text and image to take more space */
+        padding-right: 0;  /* Remove padding on smaller screens */
+    }
+}
+
 /* footer */
 .footer {
   background: linear-gradient(to right, #10b981, #14b8a6);
