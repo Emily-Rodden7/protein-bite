@@ -6,7 +6,7 @@ body {
 }
 
 .navbar {
-  background: linear-gradient(to right, #059669, #0d9488);
+  background: linear-gradient(to right, #10b981, #0d9488);
   padding: 1rem;
   display: flex;
   justify-content: space-around;
@@ -123,13 +123,37 @@ h1 {
 
 /* about us page */
 
-/* General styling for the about section */
+/* Hero Image Section */
+.about-hero {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(to right, #10b981, #0d9488);
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Vertically center the content */
+    text-align: center;
+}
+
+/* Title for the hero section */
+.abouthero-text h1 {
+    font-size: 3rem;
+    -webkit-background-clip: text;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+/* Optional: Ensure the hero section text has some spacing for better presentation */
+.hero-text {
+    padding: 20px;
+}
+
 
 /* General styling for the about section */
 .about {
     display: flex;
     align-items: center;   /* Ensure both text and image are vertically centered */
-    justify-content: space-between; /* Space between text and image */
     margin: 50px 0;
     padding: 20px;
 }

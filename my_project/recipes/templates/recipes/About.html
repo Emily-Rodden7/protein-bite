@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+  <!-- Navigation bar -->
     <div class="navbar">
         <span>Welcome, {{ user.username }}!</span>
         <a href="{% url 'home' %}">Home</a>
@@ -20,7 +21,13 @@
           <a href="{% url 'login' %}">Log In</a>
         {% endif %}
     </div>
-    
+    <!-- Hero background and title text -->
+    <div class="about-hero">
+    <div class="abouthero-text">
+        <h1>Welcome to Protein Bite</h1>
+    </div>
+</div>
+<!-- About section text and image -->
     <div class="about">
     <div class="about-text">
         <p>My partner and I decided to start experimenting with high-protein recipes
