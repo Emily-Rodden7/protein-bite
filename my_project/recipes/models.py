@@ -26,4 +26,4 @@ class Account(models.Model):
 def create_or_update_user_account(sender, instance, created, **kwargs):
     if created:
         Account.objects.create(user=instance)
-    instance.Account.save()
+    instance.account.save()
