@@ -12,12 +12,14 @@
         <a href="{% url 'home' %}">Home</a>
         <a href="{% url 'about' %}">About</a>
         <a href="{% url 'recipes' %}">Recipes</a>
-        <a href="{% url 'signup' %}">Sign Up / Log In</a>
+        <a href="{% url 'login' %}">Log In</a>
     </div>
+<h1>Sign up / Log in</h1>
+<p>This app lists high-protein recipe ideas for fitness and health.</p>
     <div class="container">
         <div class="forms-container">
-            <div class="signin-signup">
-                <form action="{% url 'signup' %}" method="post" class="sign-up-form">
+            <div class="signin-login">
+                <form action="{% url 'login' %}" method="post" class="sign-up-form">
                     {% csrf_token %}
                     <h2 class="title">Sign up</h2>
                     <div class="input-field">
@@ -30,7 +32,8 @@
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" name="password1" placeholder="Password" required>
+                        <input type="password" class="password" name="password1" placeholder="Password" required>
+                        <button class="toggle-password" type="button">Show Password</button>
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
@@ -47,16 +50,29 @@
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" name="password" placeholder="Password" required>
+                        <input type="password" class="password" name="password" placeholder="Password" required>
+                        <button class="toggle-password" type="button">Show Password</button>
                     </div>
                     <input type="submit" value="Sign in" class="btn">
                 </form>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
-<h1>Sign up / Log in</h1>
-<p>This app lists high-protein recipe ideas for fitness and health.</p>
+    <script>
+    const passwordInputs = document.querySelectorAll('.password');
+    const toggleButtons = document.querySelectorAll('.toggle-password');
+
+    //Show/hide password
+toggleButtons.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    if (passwordInputs[index].type === 'password') {
+      passwordInputs[index].type = 'text';
+    } else {
+      passwordInputs[index].type = 'password';
+    }
+  });
+});
+    </script>
 
 <!-- Footer -->
  <footer class="footer">
@@ -67,7 +83,7 @@
       <li><a href="/">Home</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/recipes/">Recipes</a></li>
-      <li><a href="/signup/">Sign Up</a></li>
+      <li><a href="/login/">Login</a></li>
     </ul>
 
     <div class="social-icons">
