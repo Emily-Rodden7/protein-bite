@@ -71,7 +71,7 @@
                         <input type="password" class="password" name="password2" placeholder="Confirm Password" required>
                         <button class="toggle-password" type="button">Show Password</button>
                     </div>
-                    <input type="submit" value="Sign up" class="btn">
+                    <input type="submit" value="Register" class="btn">
                 </form>
                 <form action="{% url 'login' %}" method="post" class="login-form">
                     {% csrf_token %}
@@ -85,7 +85,7 @@
                         <input type="password" class="password" name="password" placeholder="Password" required>
                         <button class="toggle-password" type="button">Show Password</button>
                     </div>
-                    <input type="submit" value="Sign in" class="btn">
+                    <input type="submit" value="Login" class="btn">
                 </form>
             </div>
         </div>
