@@ -17,3 +17,7 @@ def recipes(request):
 
 def signup(request):
     return render(request, 'recipes/signup.html')
+
+
+def my_account(request):
+    return render(request, 'recipes/my_account.html')
