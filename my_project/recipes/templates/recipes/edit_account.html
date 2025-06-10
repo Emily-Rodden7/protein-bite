@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Edit Account</title>
     <link rel="stylesheet" href="{% static 'recipes/styles.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -21,21 +21,18 @@
         {% endif %}
     </div>
 
-<div>
-  <h1>My Account</h1>
-<p>See Account details below.</p>
+    <h1>Edit Your Account</h1>
+    <form method="post">
+      {% csrf_token %}
+      <label>Address:</label><br>
+      <input type="text" name="address" value="{{ account.address }}"><br><br>
 
-  {% if user.is_authenticated %}
-    <p><strong>Username:</strong> {{ user.username }}</p>
-    <p><strong>Email:</strong> {{ user.email }}</p>
-    <p><strong>Address:</strong> {{ user.account.address }}</p>
-    <p><strong>Phone Number:</strong> {{ user.account.phonenumber }}</p>
-    <a href="{% url 'edit_account' %}" class="btn">Edit Account</a>
-{% else %}
-    <p>You must be logged in to view your account details.</p>
-    <a href="{% url 'login' %}">Log in here</a>
-{% endif %}
-</div>
+      <label>Phone Number:</label><br>
+      <input type="text" name="phonenumber" value="{{ account.phonenumber }}"><br><br>
+
+      <button type="submit">Save Changes</button>
+    </form>
+
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-content">

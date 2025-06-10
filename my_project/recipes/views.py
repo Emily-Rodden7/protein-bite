@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from .models import ProteinRecipes
+from .models import Account
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
@@ -56,31 +58,23 @@ def login_view(request):
             return redirect('account')
     return render(request, 'recipes/login.html')
 
-#  def login(request):
-#    form = UserCreationForm()
-
-#     if request.method == 'POST':
-#        if 'register' in request.POST:
-#             form = UserCreationForm(request.POST)
-#             if form.is_valid():
-#                 form.save()
-#                 username = form.cleaned_data.get('username')
-#                 password = form.cleaned_data.get('password1')
-#                 user = authenticate(username=username, password=password)
-#                 login(request, user)
-#                 messages.success(request, 'Registration successful! Please login.')
-#                 return redirect('home')
-#         elif 'login' in request.POST:
-#             username = request.POST['username']
-#             password = request.POST['password']
-#             user = authenticate(request, username=username, password=password)
-#             if user is not None:
-#                 login(request, user)
-#                 return redirect('home')
-#     else:
-#         form = UserCreationForm()
-#     return render(request, 'recipes/login.html', {'form': form})
-
 
 def account(request):
     return render(request, 'recipes/account.html')
+
+
+@login_required
+def edit_account(request):
+    user = request.user
+
+    account_obj, created = Account.objects.get_or_create(user=user)
+
+    if request.method == 'POST':
+        account_obj.address     = request.POST.get('address', '')
+        account_obj.phonenumber = request.POST.get('phonenumber', '')
+        account_obj.save()
+        return redirect('account')
+
+    return render(request, 'recipes/edit_account.html', {
+        'account': account_obj
+    })
