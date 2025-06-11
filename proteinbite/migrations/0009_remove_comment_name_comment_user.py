@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('recipes', '0008_proteinrecipes_image'),
+        ('proteinbite', '0008_proteinrecipes_image'),
     ]
 
     operations = [

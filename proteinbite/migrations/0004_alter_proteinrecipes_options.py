@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('recipes', '0003_rename_profile_account'),
+        ('proteinbite', '0003_rename_profile_account'),
     ]
 
     operations = [

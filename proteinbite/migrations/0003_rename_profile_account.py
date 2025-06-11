@@ -8,7 +8,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('recipes', '0002_rename_proteinrecipe_proteinrecipes_profile'),
+        ('proteinbite', '0002_rename_proteinrecipe_proteinrecipes_profile'),
     ]
 
     operations = [
