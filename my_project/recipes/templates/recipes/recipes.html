@@ -41,7 +41,21 @@
     </div>
 </div>
 
-<p>Discover delicious, protein-packed meals that fuel your body and satisfy your taste buds.</p>
+<h1>Recipes</h1>
+<div class="recipe-grid">
+  {% for recipe in recipes %}
+    <a href="{% url 'recipe_detail' recipe.id %}" class="card">
+      <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
+      <h2>{{ recipe.title }}</h2>
+      <p>{{ recipe.description|truncatewords:15 }}</p>
+      <div>
+        <strong>Calories:</strong> {{ recipe.calories }}<br>
+        <strong>Meat:</strong> {{ recipe.meat_type }}<br>
+        <strong>Protein:</strong> {{ recipe.protein_grams }}g
+      </div>
+    </a>
+  {% endfor %}
+</div>
 
 <!-- Footer -->
 <footer class="footer">

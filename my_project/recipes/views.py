@@ -5,7 +5,9 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-
+from .models import Comment
+from .forms import CommentForm
+from django.shortcuts import get_object_or_404
 
 def home(request):
     recipes = ProteinRecipes.objects.all()
@@ -81,3 +83,30 @@ def edit_account(request):
     return render(request, 'recipes/edit_account.html', {
         'account': account_obj
     })
+
+
+#  adding comments to recipes
+
+def recipe_detail(request, recipe_id):
+    recipe = get_object_or_404(ProteinRecipes, id=recipe_id)
+    comments = recipe.comments.all()
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.recipe = recipe
+            comment.save()
+            return redirect('recipe_detail', recipe_id=recipe.id)
+    else:
+        form = CommentForm()
+
+    return render(request, 'recipes/recipe_detail.html', {
+        'recipe': recipe,
+        'comments': comments,
+        'form': form
+    })
+
+def recipes(request):
+    recipes = ProteinRecipes.objects.all()
+    return render(request, 'recipes/recipes.html', {'recipes': recipes})
