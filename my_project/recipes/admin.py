@@ -1,5 +1,9 @@
 from django.contrib import admin
 from .models import ProteinRecipes, Comment
 
-admin.site.register(ProteinRecipes)
+class ProteinRecipesAdmin(admin.ModelAdmin):
+    list_display = ('name', 'protein_grams')
+    fields = ('name', 'protein_grams', 'description', 'image') 
+
+admin.site.register(ProteinRecipes, ProteinRecipesAdmin)
 admin.site.register(Comment)
