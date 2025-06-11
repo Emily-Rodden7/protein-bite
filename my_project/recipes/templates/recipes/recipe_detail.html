@@ -73,28 +73,39 @@
 <div class="comments-section">
   <h2>Comments</h2>
 
-  {% for comment in comments %}
-    <div class="comment">
-      <strong>{{ comment.user.username }}</strong>
-      <p>{{ comment.body }}</p>
-      <small>{{ comment.created_at|date:"M d, Y H:i" }}</small>
-    </div>
-  {% empty %}
-    <p>No comments yet. Be the first to comment!</p>
-  {% endfor %}
+  <!-- List of comments -->
+  <div class="comment-list">
+    {% for comment in comments %}
+      <div class="comment">
+        <p class="comment-meta">
+          <strong>{{ comment.user.username }}</strong> 
+          <span class="comment-date">{{ comment.created_at|date:"M d, Y H:i" }}</span>
+        </p>
+        <p class="comment-body">{{ comment.body }}</p>
+      </div>
+    {% empty %}
+      <p class="no-comments">No comments yet. Be the first to comment!</p>
+    {% endfor %}
+  </div>
 
+  <!-- Comment Form -->
   {% if user.is_authenticated %}
-    <h3>Leave a Comment</h3>
-    <form method="post">
-      {% csrf_token %}
-      {{ comment_form.as_p }}
-      <button type="submit">Post Comment</button>
-    </form>
+    <div class="comment-form">
+      <h3>Leave a Comment</h3>
+      <form method="post">
+        {% csrf_token %}
+        {{ comment_form.body.label_tag }}
+        {{ comment_form.body }}
+        <button type="submit">Post Comment</button>
+      </form>
+    </div>
   {% else %}
-    <p>If you would like to leave a comment, please make an account and sign in:</p>
-    <div class="comment-buttons">
+    <div class="comment-login-prompt">
+      <p>If you would like to leave a comment, please sign in or create an account:</p>
+      <div class="comment-buttons">
         <a href="{% url 'register' %}" class="btn">Sign Up</a>
         <a href="{% url 'login' %}" class="btn">Log In</a>
+      </div>
     </div>
   {% endif %}
 </div>
