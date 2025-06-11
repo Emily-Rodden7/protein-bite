@@ -13,10 +13,8 @@ def home(request):
     recipes = ProteinRecipes.objects.all()
     return render(request, 'recipes/home.html', {'recipes': recipes})
 
-
 def about(request):
     return render(request, 'recipes/about.html')
-
 
 def recipes(request):
     recipe_list = ProteinRecipes.objects.all()
@@ -52,7 +50,6 @@ def register(request):
     else:
         return render(request, 'recipes/register.html')
 
-
 def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -63,10 +60,8 @@ def login_view(request):
             return redirect('account')
     return render(request, 'recipes/login.html')
 
-
 def account(request):
     return render(request, 'recipes/account.html')
-
 
 @login_required
 def edit_account(request):
@@ -83,7 +78,6 @@ def edit_account(request):
     return render(request, 'recipes/edit_account.html', {
         'account': account_obj
     })
-
 
 #  adding comments to recipes
 
