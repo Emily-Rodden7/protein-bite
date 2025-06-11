@@ -37,38 +37,91 @@
     <!-- Hero background and title text -->
     <div class="colour-hero">
     <div class="colourhero-text">
-        <h1>Recipes</h1>
+        <h1>{{ recipe.title }}</h1>
     </div>
 </div>
 
-<!-- Pull recipe from Django -->
-<h1>{{ recipe.title }}</h1>
-{% if recipe.image %}
-  <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
-{% else %}
-  <img src="/static/recipes/images/picturecomingsoon.png" alt="Picture Coming Soon">
-{% endif %}
-<p>{{ recipe.description }}</p>
-<ul>
-  <li>Calories: {{ recipe.calories }}</li>
-  <li>Meat: {{ recipe.meat_type }}</li>
-  <li>Protein: {{ recipe.protein_grams }}g</li>
-</ul>
-<!-- add comments to the recipe -->
-<h2>Comments</h2>
-{% for comment in comments %}
-  <div>
-    <strong>{{ comment.name }}</strong> ({{ comment.created_at|date:"M j, Y" }})
-    <p>{{ comment.text }}</p>
-  </div>
-{% empty %}
-  <p>No comments yet.</p>
-{% endfor %}
+<!-- Recipe detail layout -->
+<div class="recipe-detail-container">
+    <!-- Left side: nutrients + method -->
+    <div class="recipe-left">
+        <div class="nutrients">
+            <h2>Nutritional Information</h2>
+            <p><strong>Calories:</strong> {{ recipe.calories }}</p>
+            <p><strong>Protein:</strong> {{ recipe.protein_grams }}g</p>
+            <p><strong>Portion Size:</strong> {{ recipe.portion_size }}</p>
+            <p><strong>Meat Type:</strong> {{ recipe.meat_type }}</p>
+        </div>
 
-<h3>Add a Comment</h3>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Post</button>
-</form>
+        <div class="method">
+            <h2>Method</h2>
+            <p>{{ recipe.method|linebreaks }}</p>
+        </div>
+    </div>
+
+    <!-- Right side: image -->
+    <div class="recipe-image">
+        {% if recipe.image %}
+            <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
+        {% else %}
+            <img src="/static/recipes/images/picturecomingsoon.png" alt="Picture Coming Soon">
+        {% endif %}
+    </div>
+</div>
+
+<!-- Comments Section -->
+<div class="comments-section">
+    <h2>Comments</h2>
+
+    {% for comment in recipe.comments.all %}
+        <div class="comment">
+            <strong>{{ comment.user.username }}</strong>
+            <p>{{ comment.text }}</p>
+        </div>
+    {% empty %}
+        <p>No comments yet.</p>
+    {% endfor %}
+
+    {% if user.is_authenticated %}
+        <!-- Comment form -->
+        <form method="post">
+            {% csrf_token %}
+            {{ comment_form.as_p }}
+            <button type="submit">Post Comment</button>
+        </form>
+    {% else %}
+        <p>If you would like to leave a comment, please make an account and sign in:</p>
+        <div class="comment-buttons">
+            <a href="{% url 'register' %}" class="btn">Register</a>
+            <a href="{% url 'login' %}" class="btn">Log In</a>
+        </div>
+    {% endif %}
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Protein Bite. All rights reserved.</p>
+    
+    <ul class="footer-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/recipes/">Recipes</a></li>
+                    {% if user.is_authenticated %}
+          <a href="{% url 'logout' %}">Log Out</a>
+        {% else %}
+          <a href="{% url 'login' %}">Log In</a>
+        {% endif %}
+    </ul>
+
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</footer>
+
 </body>
+</html>

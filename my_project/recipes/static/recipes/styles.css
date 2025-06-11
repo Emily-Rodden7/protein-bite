@@ -296,6 +296,68 @@ h1 {
   gap: 0.3rem;
 }
 
+/* Recipe detail page */
+
+.recipe-detail-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.recipe-left {
+    flex: 1;
+    min-width: 300px;
+}
+
+.recipe-image {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recipe-image img {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.nutrients h2, .method h2 {
+    color: #0d9488;
+}
+
+.comments-section {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #f4f4f4;
+    border-radius: 12px;
+}
+
+.comment-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.comment-buttons .btn {
+    background-color: #0d9488;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.comment-buttons .btn:hover {
+    background-color: #0f766e;
+}
+
 /* footer */
 .footer {
   background: linear-gradient(to right, #10b981, #14b8a6);
