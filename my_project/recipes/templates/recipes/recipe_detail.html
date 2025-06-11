@@ -71,31 +71,32 @@
 
 <!-- Comments Section -->
 <div class="comments-section">
-    <h2>Comments</h2>
+  <h2>Comments</h2>
 
-    {% for comment in recipe.comments.all %}
-        <div class="comment">
-            <strong>{{ comment.user.username }}</strong>
-            <p>{{ comment.text }}</p>
-        </div>
-    {% empty %}
-        <p>No comments yet.</p>
-    {% endfor %}
+  {% for comment in comments %}
+    <div class="comment">
+      <strong>{{ comment.user.username }}</strong>
+      <p>{{ comment.body }}</p>
+      <small>{{ comment.created_at|date:"M d, Y H:i" }}</small>
+    </div>
+  {% empty %}
+    <p>No comments yet. Be the first to comment!</p>
+  {% endfor %}
 
-    {% if user.is_authenticated %}
-        <!-- Comment form -->
-        <form method="post">
-            {% csrf_token %}
-            {{ comment_form.as_p }}
-            <button type="submit">Post Comment</button>
-        </form>
-    {% else %}
-        <p>If you would like to leave a comment, please make an account and sign in:</p>
-        <div class="comment-buttons">
-            <a href="{% url 'register' %}" class="btn">Register</a>
-            <a href="{% url 'login' %}" class="btn">Log In</a>
-        </div>
-    {% endif %}
+  {% if user.is_authenticated %}
+    <h3>Leave a Comment</h3>
+    <form method="post">
+      {% csrf_token %}
+      {{ comment_form.as_p }}
+      <button type="submit">Post Comment</button>
+    </form>
+  {% else %}
+    <p>If you would like to leave a comment, please make an account and sign in:</p>
+    <div class="comment-buttons">
+        <a href="{% url 'register' %}" class="btn">Sign Up</a>
+        <a href="{% url 'login' %}" class="btn">Log In</a>
+    </div>
+  {% endif %}
 </div>
 
 <!-- Footer -->

@@ -19,8 +19,8 @@ def about(request):
 
 
 def recipes(request):
-    return render(request, 'recipes/recipes.html')
-
+    recipe_list = ProteinRecipes.objects.all()
+    return render(request, 'recipes/recipes.html', {'recipes': recipe_list})
 
 def register(request):
     if request.method == "POST":
@@ -89,24 +89,21 @@ def edit_account(request):
 
 def recipe_detail(request, recipe_id):
     recipe = get_object_or_404(ProteinRecipes, id=recipe_id)
-    comments = recipe.comments.all()
+    comments = recipe.comments.all().order_by('-created_at')
 
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.recipe = recipe
-            comment.save()
-            return redirect('recipe_detail', recipe_id=recipe.id)
+    if request.user.is_authenticated and request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.recipe = recipe
+            new_comment.user = request.user
+            new_comment.save()
+            return redirect('recipe_detail', recipe_id=recipe_id)
     else:
-        form = CommentForm()
+        comment_form = CommentForm()
 
     return render(request, 'recipes/recipe_detail.html', {
         'recipe': recipe,
         'comments': comments,
-        'form': form
+        'comment_form': comment_form
     })
-
-def recipes(request):
-    recipes = ProteinRecipes.objects.all()
-    return render(request, 'recipes/recipes.html', {'recipes': recipes})

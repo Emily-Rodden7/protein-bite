@@ -35,9 +35,9 @@ def create_or_update_user_account(sender, instance, created, **kwargs):
 
 class Comment(models.Model):
     recipe = models.ForeignKey(ProteinRecipes, on_delete=models.CASCADE, related_name='comments')
-    name = models.CharField(max_length=100)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # logged-in user
     body = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.name} on {self.recipe}"
+        return f'Comment by {self.user.username} on {self.recipe.name}'
