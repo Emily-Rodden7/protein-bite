@@ -8,6 +8,7 @@ class ProteinRecipes(models.Model):
     name = models.CharField(max_length=100)
     protein_grams = models.IntegerField()
     description = models.TextField()
+    image = models.ImageField(upload_to='recipe_images/', blank=True, null=True)
 
     class Meta:
         verbose_name = "Protein Recipe"
