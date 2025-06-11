@@ -8,4 +8,3 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ['name', 'text']
-python manage.py runserver

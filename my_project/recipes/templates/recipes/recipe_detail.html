@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe Details</title>
+    <link rel="stylesheet" href="{% static 'recipes/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Navigation bar -->
+<div class="navbar">
+    <!-- Logo on the left -->
+    <a href="/" class="navbar-logo">
+        <img src="{% static 'recipes/images/proteinbite-logo.png' %}" alt="Protein Bite Logo" class="logo">
+    </a>
+
+    <!-- Navigation links on the right -->
+    <div class="navbar-links">
+        {% if user.is_authenticated %}
+            <span class="welcome-message">Welcome, {{ user.username }}!</span>
+            <a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+            <a href="{% url 'about' %}" class="{% if request.path == '/about/' %}active{% endif %}">About</a>
+            <a href="{% url 'recipes' %}" class="{% if request.path == '/recipes/' %}active{% endif %}">Recipes</a>
+            <a href="{% url 'account' %}" class="{% if request.path == '/account/' %}active{% endif %}">Account</a>
+            <a href="{% url 'logout' %}" class="{% if request.path == '/logout/' %}active{% endif %}">Log Out</a>
+        {% else %}
+            <a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+            <a href="{% url 'about' %}" class="{% if request.path == '/about/' %}active{% endif %}">About</a>
+            <a href="{% url 'recipes' %}" class="{% if request.path == '/recipes/' %}active{% endif %}">Recipes</a>
+            <a href="{% url 'login' %}" class="{% if request.path == '/login/' %}active{% endif %}">Log In</a>
+        {% endif %}
+    </div>
+</div>
+
+    <!-- Hero background and title text -->
+    <div class="colour-hero">
+    <div class="colourhero-text">
+        <h1>Recipes</h1>
+    </div>
+</div>
+
+<!-- Pull recipe from Django -->
+<h1>{{ recipe.title }}</h1>
+<img src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
+<p>{{ recipe.description }}</p>
+<ul>
+  <li>Calories: {{ recipe.calories }}</li>
+  <li>Meat: {{ recipe.meat_type }}</li>
+  <li>Protein: {{ recipe.protein_grams }}g</li>
+</ul>
+<!-- add comments to the recipe -->
+<h2>Comments</h2>
+{% for comment in comments %}
+  <div>
+    <strong>{{ comment.name }}</strong> ({{ comment.created_at|date:"M j, Y" }})
+    <p>{{ comment.text }}</p>
+  </div>
+{% empty %}
+  <p>No comments yet.</p>
+{% endfor %}
+
+<h3>Add a Comment</h3>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Post</button>
+</form>
+</body>

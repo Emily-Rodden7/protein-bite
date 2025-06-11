@@ -1,7 +1,5 @@
 from django.contrib import admin
-from .models import ProteinRecipes
+from .models import ProteinRecipes, Comment
 
 admin.site.register(ProteinRecipes)
-
-from .models import Recipe, Comment
 admin.site.register(Comment)
