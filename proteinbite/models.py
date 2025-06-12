@@ -7,6 +7,9 @@ from django.dispatch import receiver
 class ProteinRecipes(models.Model):
     name = models.CharField(max_length=100)
     protein_grams = models.IntegerField()
+    calories = models.IntegerField(null=True, blank=True)
+    serves = models.CharField(max_length=100, blank=True)
+    meat_type = models.CharField(max_length=100, blank=True)
     description = models.TextField()
     ingredients = models.TextField()
     method = models.TextField()
