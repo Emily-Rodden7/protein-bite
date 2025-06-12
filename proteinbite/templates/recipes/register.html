@@ -61,7 +61,7 @@
             <a href="{% url 'about' %}" class="{% if request.path == '/about/' %}active{% endif %}">About</a>
             <a href="{% url 'recipes' %}" class="{% if request.path == '/recipes/' %}active{% endif %}">Recipes</a>
             <a href="{% url 'account' %}" class="{% if request.path == '/account/' %}active{% endif %}">Account</a>
-            <a href="{% url 'logout' %}" class="{% if request.path == '/logout/' %}active{% endif %}">Log Out</a>
+            <a href="#" id="logout-link" class="{% if request.path == '/logout/' %}active{% endif %}">Log Out</a>
         {% else %}
             <a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
             <a href="{% url 'about' %}" class="{% if request.path == '/about/' %}active{% endif %}">About</a>
@@ -70,6 +70,11 @@
         {% endif %}
     </div>
 </div>
+
+<!-- Hidden logout form -->
+ <form id="logout-form" method="POST" action="{% url 'logout' %}" style="display: none;">
+    {% csrf_token %}
+</form>
 
     <!-- Hero background and title text -->
     <div class="colour-hero">
@@ -150,6 +155,16 @@ toggleButtons.forEach((button, index) => {
     </div>
   </div>
 </footer>
+
+<!-- Javascript section -->
+ <!-- logout section -->
+<script>
+    document.getElementById('logout-link').addEventListener('click', function(event) {
+        event.preventDefault();  // Prevent default <a> behavior
+        document.getElementById('logout-form').submit();  // Submit the hidden form
+    });
+</script>
+
 </body>
 </html>
 
