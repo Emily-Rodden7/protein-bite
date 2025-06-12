@@ -112,3 +112,13 @@ def recipe_detail(request, recipe_id):
         'comments': comments,
         'comment_form': comment_form
     })
+
+# Delete user account 
+
+@login_required
+def delete_account(request):
+    if request.method == 'POST':
+        request.user.delete()
+        messages.success(request, 'Your account has been deleted.')
+        return redirect('home')
+    return redirect('account')

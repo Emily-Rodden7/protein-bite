@@ -12,4 +12,5 @@ urlpatterns = [
     path('account/', views.account, name='account'),
     path('account/edit/', views.edit_account, name='edit_account'),
     path('recipes/<int:recipe_id>/', views.recipe_detail, name='recipe_detail'),
+    path('delete-account/', views.delete_account, name='delete_account'), # delete account
 ]

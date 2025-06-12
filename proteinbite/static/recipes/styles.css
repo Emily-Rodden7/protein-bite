@@ -548,6 +548,22 @@ h1 {
     width: 100%;
 }
 
+/* deleted account */
+.delete-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 40px;
+}
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+
 /* log in account form */
 
 .login-container {
