@@ -313,6 +313,14 @@ h1 {
     margin-bottom: 2rem;
 }
 
+.left-column {
+    flex: 0 0 55%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 .nutrients {
     flex: 0 0 55%;
     min-width: 300px;
@@ -324,7 +332,7 @@ h1 {
 
 .recipe-description {
     margin-top: 1rem;
-    width: 70%;
+    width: 40%;
 }
 
 .recipe-description h3 {
