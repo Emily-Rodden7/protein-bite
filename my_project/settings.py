@@ -128,3 +128,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'recipe_images')
+
+# when user logs out it redirects
+
+LOGOUT_REDIRECT_URL = '/'
