@@ -307,19 +307,36 @@ h1 {
 /* Top section: nutrients on left, image on right */
 .top-section {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 10px;
     margin-bottom: 2rem;
 }
 
 .nutrients {
-    flex: 1;
+    flex: 0 0 55%;
     min-width: 300px;
 }
 
 .nutrients h2 {
     color: #0d9488;
+}
+
+.recipe-description {
+    margin-top: 1rem;
+    width: 70%;
+}
+
+.recipe-description h3 {
+    font-size: 1.2rem;
+    color: #0d9488;
+    margin-bottom: 0.5rem;
+}
+
+.recipe-description p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
 }
 
 .recipe-image {
@@ -349,7 +366,6 @@ h1 {
 /* Ingredients and Method sections */
 #ingredients-section,
 #method-section {
-    max-width: 600px;
     margin-top: 1rem;
 }
 

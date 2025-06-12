@@ -49,8 +49,10 @@
 <!-- Recipe Detail Layout -->
 <div class="recipe-detail-container">
 
-    <!-- Top row: nutrients and image -->
-    <div class="top-section">
+<div class="top-section">
+  
+    <!-- LEFT: Nutrients + Description -->
+    <div class="left-column">
         <div class="nutrients">
             <h2>Nutritional Information</h2>
             <p><strong>Calories:</strong> {{ recipe.calories }}</p>
@@ -58,6 +60,13 @@
             <p><strong>Portion Size:</strong> {{ recipe.portion_size }}</p>
             <p><strong>Meat Type:</strong> {{ recipe.meat_type }}</p>
         </div>
+
+        <!-- recipe description -->
+        <div class="recipe-description">
+            <h3>Description</h3>
+            <p>{{ recipe.description }}</p>
+        </div>
+    </div>
 
         <div class="recipe-image">
             {% if recipe.image %}
