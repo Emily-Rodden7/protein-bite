@@ -129,6 +129,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'recipe_images')
 
-# when user logs out it redirects
+# when user logs in and out redirects
 
 LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'account'
+
+'proteinbite.apps.ProteinbiteConfig',
+

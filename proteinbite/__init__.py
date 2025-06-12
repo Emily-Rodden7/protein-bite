@@ -5,4 +5,4 @@ class ProteinbiteConfig(AppConfig):
     name = 'proteinbite'
 
     def ready(self):
-        import proteinbite.models  # This makes sure the signal is registered
+        import proteinbite.signals  # activates signals

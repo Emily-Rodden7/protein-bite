@@ -20,6 +20,7 @@ def recipes(request):
     recipe_list = ProteinRecipes.objects.all()
     return render(request, 'recipes/recipes.html', {'recipes': recipe_list})
 
+# register account
 def register(request):
     if request.method == "POST":
         username = request.POST['username']
@@ -44,12 +45,18 @@ def register(request):
             email=email,
             password=password1)
         user.save()
-        messages.success(request,
-                         "Account created successfully! Please log in.")
-        return redirect('login')
+
+        # Log the user in immediately
+        login(request, user)
+
+        messages.success(request, "Account created successfully!")
+        return redirect('account')  # Redirect them to their account page
     else:
         return render(request, 'recipes/register.html')
 
+from django.contrib import messages
+
+#login
 def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -57,11 +64,12 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            messages.success(request, f"Welcome back, {username}!")
             return redirect('account')
+        else:
+            messages.error(request, "Invalid username or password.")
+            return render(request, 'recipes/login.html')
     return render(request, 'recipes/login.html')
-
-def account(request):
-    return render(request, 'recipes/account.html')
 
 @login_required
 def edit_account(request):
@@ -78,6 +86,10 @@ def edit_account(request):
     return render(request, 'recipes/edit_account.html', {
         'account': account_obj
     })
+
+@login_required
+def account(request):
+    return render(request, 'recipes/account.html')
 
 #  adding comments to recipes
 
