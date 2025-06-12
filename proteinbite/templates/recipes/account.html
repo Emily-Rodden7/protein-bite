@@ -39,20 +39,23 @@
     {% csrf_token %}
 </form>
 
-<div>
-  <h1>My Account</h1>
-<p>See Account details below.</p>
+<!-- account information -->
+<div class="account-container">
+  <div id="account-form">
+    <h1>My Account</h1>
+    <p>See Account details below.</p>
 
-  {% if user.is_authenticated %}
-    <p><strong>Username:</strong> {{ user.username }}</p>
-    <p><strong>Email:</strong> {{ user.email }}</p>
-    <p><strong>Address:</strong> {{ user.account.address }}</p>
-    <p><strong>Phone Number:</strong> {{ user.account.phonenumber }}</p>
-    <a href="{% url 'edit_account' %}" class="btn">Edit Account</a>
-{% else %}
-    <p>You must be logged in to view your account details.</p>
-    <a href="{% url 'login' %}">Log in here</a>
-{% endif %}
+    {% if user.is_authenticated %}
+      <p><strong>Username:</strong> {{ user.username }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Address:</strong> {{ user.account.address }}</p>
+      <p><strong>Phone Number:</strong> {{ user.account.phonenumber }}</p>
+      <a href="{% url 'edit_account' %}" class="btn">Edit Account</a>
+    {% else %}
+      <p>You must be logged in to view your account details.</p>
+      <a href="{% url 'login' %}">Log in here</a>
+    {% endif %}
+  </div>
 </div>
 
 <!-- Footer -->
