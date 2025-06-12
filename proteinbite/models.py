@@ -13,7 +13,7 @@ class ProteinRecipes(models.Model):
     description = models.TextField()
     ingredients = models.TextField()
     method = models.TextField()
-    image = models.ImageField(upload_to='media/recipe_images/', blank=True, null=True)
+    image = models.ImageField(blank=True, null=True)
 
     class Meta:
         verbose_name = "Protein Recipe"
