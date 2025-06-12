@@ -60,7 +60,11 @@
 
         <div class="method">
             <h2>Method</h2>
-            <p>{{ recipe.method}}</p>
+            <ol>
+              {% for step in recipe.method.splitlines %}
+              <li>{{ step }}</li>
+              {% endfor %}
+            </ol>
         </div>
     </div>
 
