@@ -9,16 +9,20 @@ from .models import Comment
 from .forms import CommentForm
 from django.shortcuts import get_object_or_404
 
+
 def home(request):
     recipes = ProteinRecipes.objects.all()
     return render(request, 'recipes/home.html', {'recipes': recipes})
 
+
 def about(request):
     return render(request, 'recipes/about.html')
+
 
 def recipes(request):
     recipe_list = ProteinRecipes.objects.all()
     return render(request, 'recipes/recipes.html', {'recipes': recipe_list})
+
 
 # register account
 def register(request):
@@ -54,9 +58,8 @@ def register(request):
     else:
         return render(request, 'recipes/register.html')
 
-from django.contrib import messages
 
-#login
+# login
 def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -69,6 +72,7 @@ def login_view(request):
             messages.error(request, "Invalid username or password.")
             return render(request, 'recipes/login.html')
     return render(request, 'recipes/login.html')
+
 
 @login_required
 def edit_account(request):
@@ -86,11 +90,14 @@ def edit_account(request):
         'account': account_obj
     })
 
+
 @login_required
 def account(request):
     return render(request, 'recipes/account.html')
 
+
 #  adding comments to recipes
+
 
 def recipe_detail(request, recipe_id):
     recipe = get_object_or_404(ProteinRecipes, id=recipe_id)
@@ -113,7 +120,9 @@ def recipe_detail(request, recipe_id):
         'comment_form': comment_form
     })
 
-# Delete user account 
+
+# Delete user account
+
 
 @login_required
 def delete_account(request):

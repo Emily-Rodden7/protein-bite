@@ -145,4 +145,3 @@ LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = 'account'
 
 'proteinbite.apps.ProteinbiteConfig',
-

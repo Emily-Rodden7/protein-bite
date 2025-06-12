@@ -38,6 +38,7 @@ def create_or_update_user_account(sender, instance, created, **kwargs):
         Account.objects.create(user=instance)
     instance.account.save()
 
+
 class Comment(models.Model):
     recipe = models.ForeignKey(ProteinRecipes, on_delete=models.CASCADE, related_name='comments')
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # logged-in user
