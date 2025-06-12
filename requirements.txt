@@ -2,4 +2,4 @@ asgiref-3.8.1
 Django-4.2.22
 sqlparse-0.5.3
 tzdata-2025.2
-pip3 freeze --local > requirements.txt
+pip3 freeze
