@@ -42,3 +42,11 @@ I have used the [PEP8 CI Python Linter](https://pep8ci.herokuapp.com/) to valida
 | urls | ![pythonurls](TESTING-screenshots/pythonurls.png) | lines too long |
 | views | ![pythonviews](TESTING-screenshots/pythonviews.png) | expected 2 blank lines, no space in the comment, whitespace, code in the wrong area |
 | views | ![pythonviews-pass](TESTING-screenshots/pythonviews-pass.png) | fixed errors: pass - No Errors |
+
+## Browser Compatability
+
+## Lighthouse
+I've tested my deployed project using the Lighthouse tool to check for issues.
+
+| Page | Screenshot | Notes |
+| ---- | ---------- | ----- |
