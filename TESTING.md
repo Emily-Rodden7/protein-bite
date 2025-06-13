@@ -51,7 +51,6 @@ I have used the [PEP8 CI Python Linter](https://pep8ci.herokuapp.com/) to valida
 | Firefox | ![firefox](TESTING-screenshots/firefox.png) | No problems |
 | Microsoft Edge | ![edge](TESTING-screenshots/microsoftedge.png) | No problems |
 
-
 ## Lighthouse
 I've tested my deployed project using the Lighthouse tool to check for issues.
 
@@ -63,3 +62,14 @@ I've tested my deployed project using the Lighthouse tool to check for issues.
 | Login | ![lighthouselogin](TESTING-screenshots/lighthouse-login.png) |
 | Recipes | ![lighthouserecipes](TESTING-screenshots/lighthouse-recipes.png) |
 | Individual Recipes - all the same | ![lighthouserecipe](TESTING-screenshots/lighthouse-recipe1.png) |
+
+## Responsiveness
+I've tested my deployed project on different screen sizes. I have also tried on laptop and desktop with no issues.
+
+| Type | Screenshot | Notes |
+| ---- | ---------- | ----- |
+| Samsung Galaxy s8 | ![samsung](TESTING-screenshots/samsung-galaxys8.png) | Loaded as expected |
+| Pixel7 | ![pixel](TESTING-screenshots/pixel7.png) | Too much whitespace |
+| IPad Air | ![ipad](TESTING-screenshots/ipadair.png) | Loaded as expected |
+| IPhone 14 Pro Max | ![iphone14](TESTING-screenshots/iphone14promax.png) | Loaded as expected |
+| IPhone se | ![iphonese](TESTING-screenshots/iphonese.png) | Loaded as expected |
