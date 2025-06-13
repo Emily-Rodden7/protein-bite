@@ -22,6 +22,23 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org/) to v
 ## CSS
 I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator/) to validate all of my CSS files.
 
+| File | Screenshot | Notes |
+| ---- | ---------- | ----- |
+| CSS Screenshot | ![css](TESTING-screenshots/cssvalidationscreenshot.png) | This error is from the enivorment I installed, I have tried to search for it but can't find the line of code. The warnings are also extensions |
+
+## Python
+I have used the [PEP8 CI Python Linter](https://pep8ci.herokuapp.com/) to validate my Python files.
+
 | Page | Screenshot | Notes |
 | ---- | ---------- | ----- |
-| Screenshot | ![css](TESTING-screenshots/cssvalidationscreenshot.png) | Pass - No Errors |
+| admin | ![pythonadmin](TESTING-screenshots/pythonadmin.png) | one line too long |
+| apps | ![pythonapps](TESTING-screenshots/pythonapps.png) | pass - No Errors |
+| asgi | ![pythonasgi](TESTING-screenshots/pythonasgi.png) | pass - No Errors |
+| forms | ![pythonforms](TESTING-screenshots/pythonforms.png) | pass - No Errors |
+| init | ![pythoninit](TESTING-screenshots/pythoninit.png) | pass - No Errors |
+| manage | ![pythonmanage](TESTING-screenshots/pythonmanage.png) | pass - No Errors |
+| models | ![pythonmodels](TESTING-screenshots/pythonmanage.png) | pass - No Errors |
+| settings | ![pythonsettings](TESTING-screenshots/pythonsettings.png) | lines too long |
+| urls | ![pythonurls](TESTING-screenshots/pythonurls.png) | lines too long |
+| views | ![pythonviews](TESTING-screenshots/pythonviews.png) | expected 2 blank lines, no space in the comment, whitespace, code in the wrong area |
+| views | ![pythonviews-pass](TESTING-screenshots/pythonviews-pass.png) | fixed errors: pass - No Errors |
