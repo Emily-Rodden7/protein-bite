@@ -45,8 +45,21 @@ I have used the [PEP8 CI Python Linter](https://pep8ci.herokuapp.com/) to valida
 
 ## Browser Compatability
 
+| Page | Screenshot | Notes |
+| ---- | ---------- | ----- |
+| Chrome | ![chrome](TESTING-screenshots/chrome.png) | No problems |
+| Firefox | ![firefox](TESTING-screenshots/firefox.png) | No problems |
+| Microsoft Edge | ![edge](TESTING-screenshots/microsoftedge.png) | No problems |
+
+
 ## Lighthouse
 I've tested my deployed project using the Lighthouse tool to check for issues.
 
-| Page | Screenshot | Notes |
-| ---- | ---------- | ----- |
+| Page | Screenshot |
+| ---- | ---------- |
+| Home | ![lighthousehome](TESTING-screenshots/lighthouse-home.png) |
+| About | ![lighthouseabout](TESTING-screenshots/lighthouse-about.png) |
+| Account | ![lighthouseaccount](TESTING-screenshots/lighthouse-account.png) |
+| Login | ![lighthouselogin](TESTING-screenshots/lighthouse-login.png) |
+| Recipes | ![lighthouserecipes](TESTING-screenshots/lighthouse-recipes.png) |
+| Individual Recipes - all the same | ![lighthouserecipe](TESTING-screenshots/lighthouse-recipe1.png) |
