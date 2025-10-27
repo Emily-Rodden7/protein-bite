@@ -153,7 +153,7 @@ if 'USE_AWS' in os.environ:
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
-# when user logs in and out redirects
+# when user logs in and out redirects 
 
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = 'account'
