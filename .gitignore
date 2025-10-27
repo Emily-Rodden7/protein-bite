@@ -2,3 +2,4 @@
 
 # Enviroments
 .env
+venv/
