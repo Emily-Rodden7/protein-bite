@@ -73,3 +73,27 @@ I've tested my deployed project on different screen sizes. I have also tried on 
 | IPad Air | ![ipad](TESTING-screenshots/ipadair.png) | Loaded as expected |
 | IPhone 14 Pro Max | ![iphone14](TESTING-screenshots/iphone14promax.png) | Loaded as expected |
 | IPhone se | ![iphonese](TESTING-screenshots/iphonese.png) | Loaded as expected |
+
+## Extra Testing
+
+Once I deployed the site on Heroku, the images that worked on the local deloyed site, no longer worked when the site went live. I found out this was because I needed to have the images saved elsewhere and link it to my Heroku account.
+
+I created a [AWS account](https://aws.amazon.com/), created a new bucket for Protein Bite and uploaded my images to that and linked it with Heroku. When relaunching, the images all now load. 
+
+To test this still worked with the admin backend account, I created a test page and uploaded a test image and text in the text boxes. Since testing and getting the outcome I wanted, I have since deleted this test recipe.
+
+![Recipe card test](TESTING-screenshots/test-recipe-screenshot.png)
+![Indivdual recipe page test](TESTING-screenshots/test-recipepage-screenshot.png)
+![Deleting test recipe](TESTING-screenshots/delete-test-recipe.png)
+
+I have also done manual testing by clicking on all links and pages on multiple different browsers. I've also created a test account to make sure all the forms work with creating, managing and deleting user accounts.
+
+| Test | Screenshot | Notes |
+| ---- | ---------- | ----- |
+|What happens when a user tries to create an account when a different user already has that username | ![username take](README-images/usernametaken.png) | Error comes up saying username already taken. |
+| Delete user account | ![delete account](README-images/deleteaccount.png) | An extra warning appears to make sure the user is sure they want to delete their account. |
+| What happens when you add a comment | ![comment section test](README-images/commentsectiontest.png) | Comment appears where expected; you can only add a comment in a user is signed in. |
+| No image to upload | ![No recipe image](TESTING-screenshots/no-recipe-image.png) | If a recipe gets uploaded but no photos have been taken of the food yet, I wanted to check the picture coming soon image would take it's place. This can then be changed with the admin login when an image is available. This means there will never be a blank spot where an image should be, which will keep the layout correct and not make anything look like its missing. |
+| Signing into an account with incorrect details | ![Incorrect login](TESTING-screenshots/incorrect-login.png) | A message appears to let the user know that they have entered incorrect details.  |
+| Method & Ingredients Button | ![Method](TESTING-screenshots/method-screenshot.png) ![Ingredients](TESTING-screenshots\ingredients-screenshot.png) | When you go into a specific recipe it shows the ingredients first, with a buton above called Method. If you click the method button, it changes the information below from ingredients to the recipe method. It also changes the name of the button to which ever information it's not currently showing. Giving the user the option to click back and forth between ingredients and method in each recipe. |
+
